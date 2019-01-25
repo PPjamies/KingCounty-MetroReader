@@ -86,7 +86,9 @@ public class Bus_Routes {
         Pattern pttn1 = Pattern.compile("<thead>\\s*<tr>\\s*<td colspan=\".*\">\\s*"
         		+ "<h2>Weekday<small>(.*)</small></h2>\\s*"
         		+ "</td>\\s*</tr>\\s*"
-        		+ "<tr>\\s*\\s*((<th class=\".*\">\\s*"
+        		+ "<tr>\\s*\\s*"
+        		+ "(<th class=\"text-center\">.*</th>\\s*)?"
+        		+ "((<th class=\".*\">\\s*"
         		+ "<span class=\".*\">\\s*"
         		+ "<i class=\".*\"></i>\\s*"
         		+ "<strong class=\".*\">.*</strong>\\s*"
@@ -96,7 +98,8 @@ public class Bus_Routes {
         while(m2.find()) {
         	int num = 1;
         	System.out.println("Destination: " + m2.group(1));
-        	String string2 = m2.group(2);
+        	String string2 = m2.group(3);
+        	//System.out.println(m2.group(3));
         	Pattern pttn2 = Pattern.compile("<th class=\".*\">\\s*"
         		+ "<span class=\".*\">\\s*"
         		+ "<i class=\".*\"></i>\\s*"
